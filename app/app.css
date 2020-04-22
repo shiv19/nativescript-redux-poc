@@ -1,0 +1,22 @@
+﻿@import "~@nativescript/theme/css/core.css";
+@import "~@nativescript/theme/css/default.css";
+
+Button.-primary {
+    font-size: 18;
+}
+
+.fa {
+    font-family: FontAwesome;
+}
+
+.page-bg {
+    background-color: #5C76C7;
+}
+
+.todo {
+    background-color: white;
+}
+
+.todo-text {
+    font-family: Caveat-Regular;
+}

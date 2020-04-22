@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "noEmitHelpers": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": ["./node_modules/@nativescript/*", "./node_modules/*"],
+      "~/*": ["app/*"]
+    }
+  },
+  "include": ["app/**/*"],
+  "exclude": ["platforms", "hooks", "node_modules"]
+}

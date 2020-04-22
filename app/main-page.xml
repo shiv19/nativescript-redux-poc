@@ -1,0 +1,60 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+    navigatingTo="onNavigatingTo"
+    loaded="onPageLoaded"
+    unloaded="onPageUnloaded"
+    xmlns:lv="nativescript-ui-listview"
+    flat="true">
+    <ActionBar class="page-bg">
+        <Label text="TODO App" color="white" textWrap="true" />
+    </ActionBar>
+
+    <GridLayout rows="auto, *, auto, auto, auto" class="page-bg">
+        
+        
+        <Label row="0" class="h3 p-x-20 m-t-10" color="white" fontWeight="bold" text="{{ state.visibilityFilter state.count, state.visibilityFilter | filterFormatter(state.count) }}" />
+        
+        <lv:RadListView row="1"
+            id="todoListView"
+            items="{{ state, state.todos }}"
+            itemSwipeProgressStarted="onSwipeCellStarted"
+            itemSwipeProgressEnded="onSwipeCellEnded"
+            swipeActions="true">
+            <!-- <lv:RadListView.listViewLayout>
+                <lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Slide" itemDeleteAnimation="Fade"/>
+            </lv:RadListView.listViewLayout> -->
+            <lv:RadListView.itemSwipeTemplate>
+                <GridLayout columns="auto, *, auto" padding="0">
+                    <StackLayout id="delete-view" col="2" style="background-color: red;" height="100%" width="50" tap="onRightSwipeClick" orientation="horizontal"
+                        verticalAlignment="center" marginRight="10">
+                        <Label text="&#xf1f8;" class="fa text-center" fontSize="22" color="white" height="100%" marginLeft="5" padding="0" />
+                    </StackLayout>
+                </GridLayout>
+            </lv:RadListView.itemSwipeTemplate>
+            <lv:RadListView.itemTemplate>
+                <GridLayout class="todo m-x-10"
+                    columns="auto, *"
+                    tap="{{ $parents['RadListView'], $parents['RadListView'].toggleTodo }}"
+                    borderBottomWidth="2"
+                    borderBottomColor="#E0E1E5">
+                    <Label col="0" class="fa" fontSize="22" text="{{ completed ? '&#xf058;' : '&#xf10c;' }}" />
+                    <Label col="1" class="todo-text" fontSize="22" verticalAlignment="center" text="{{ text }}" textDecoration="{{ completed ? 'line-through' : '' }}" textWrap="true" />
+                </GridLayout>
+            </lv:RadListView.itemTemplate>
+        </lv:RadListView>
+
+        <GridLayout row="2" columns="*, *, *">
+            <Button col="0" text="All" backgroundColor="{{ state, state.visibilityFilter === 'SHOW_ALL' ? '#FFC769' : '#A8AABC' }}" class="-primary p-x-10 visibility-toggle" fontWeight="bold" margin="0 0 0 5" tap="{{ showAll }}" />
+            <Button col="1" text="Active" backgroundColor="{{ state, state.visibilityFilter === 'SHOW_ACTIVE' ? '#FFC769' : '#A8AABC' }}" class="-primary p-x-10 visibility-toggle" fontWeight="bold" margin="0" tap="{{ showActive }}" />
+            <Button col="2" text="Completed" backgroundColor="{{ state, state.visibilityFilter === 'SHOW_COMPLETED' ? '#FFC769' : '#A8AABC' }}" class="-primary p-x-10 visibility-toggle" fontWeight="bold" margin="0 5 0 0" tap="{{ showCompleted }}" />
+        </GridLayout>
+        <GridLayout row="3" columns="*, *, *">
+            <Button col="0" text="Undo" class="-primary p-x-10 visibility-toggle" backgroundColor="#FF7DAD" fontSize="16" margin="0 0 0 5" tap="{{ onUndo }}" />
+            <Button col="1" text="Redo" class="-primary p-x-10 visibility-toggle" backgroundColor="#FF7DAD" fontSize="16" margin="0" tap="{{ onRedo }}" />
+            <Button col="2" text="Clear History" class="-primary p-x-10 visibility-toggle" backgroundColor="#FF7DAD" fontSize="16" margin="0 5 0 0" tap="{{ onClear }}" />
+        </GridLayout>
+        <GridLayout row="4" columns="*, auto" class="p-x-10">
+            <TextField id="todoTextField" col="0" fontSize="20" text="{{ todoText, todoText }}" class="-border c-bg-white" margin="10 10 10 0" returnPress="{{ onAddTodo }}" />
+            <Button col="1" text="&#xf067;" class="fa -primary m-x-auto" backgroundColor="#FFC769" margin="10 0" borderRadius="20" width="40" height="40" tap="{{ onAddTodo }}" />
+        </GridLayout>
+    </GridLayout>
+</Page>
