@@ -1,9 +1,8 @@
 import { VisibilityFilters, deleteTodo } from "./store/actions";
+import { persistor, store } from "./store";
 import { ObservableArray } from "@nativescript/core";
 import { getResources } from "@nativescript/core/application/application";
 import { getVisibleTodos } from "./store/selectors";
-import { setString } from "@nativescript/core/application-settings";
-import { store } from "./store";
 
 const createViewModel = require("./main-view-model").createViewModel;
 let vm;
@@ -22,12 +21,12 @@ export function onPageLoaded(args) {
         state.count = state.todos.length;
 
         vm.set('state', state);
-        setString('appState', JSON.stringify(store.getState()));
     });
 }
 
 export function onPageUnloaded(args) {
     unsubscribeFromStore();
+    persistor.flush();
 }
 
 export function onSwipeCellStarted(args) {
