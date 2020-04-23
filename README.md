@@ -9,8 +9,9 @@ Additional info coming soon.
 `git clone https://github.com/vakrilov/ngrx-devtools-nativescript.git ./reduxDemo`
 
 Goto `app/state/store.js` and change the hostname to your computer’s local IP address (assuming you’ll connect to a android/ios device over USB debugging) \
-once the app is installed in your app,
 
+In package.json, in the script section, change the IP address of the script to your
+computer's IP address\
 you can run `npm run remotedev` to start the dev server\
 then on a browser visit `<your ip address>:8000` to access the redux remote console console!
 
