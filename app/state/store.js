@@ -1,5 +1,4 @@
 import { applyMiddleware, createStore } from 'redux';
-require("nativescript-nodeify");
 const composeWithDevTools = require('remote-redux-devtools').composeWithDevTools;
 // import { createLogger } from 'redux-logger';
 import { getString } from '@nativescript/core/application-settings';
