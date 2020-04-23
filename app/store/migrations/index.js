@@ -1,19 +1,10 @@
 export const migrations = {
-  2: (state) =>
-    // migration to add a new key called awesomeNewKey
+  1: (state) =>
+    // migration to clear the todo list
     ({
       ...state,
-      awesomeNewKey: 'MultiShiv19'
-    }),
-  3: (state) =>
-    // migration to clear the user's todo list
-    ({
-      visibilityFilter: state.visibilityFilter,
-      todos: {
-        ...state.todos,
-        present: [],
-        past: [],
-        future: []
-      }
+      present: [],
+      past: [],
+      future: []
     })
 };

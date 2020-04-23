@@ -1,5 +1,6 @@
 import { VisibilityFilters, deleteTodo } from "./store/actions";
 import { persistor, store } from "./store";
+import { ActionCreators } from "redux-undo";
 import { ObservableArray } from "@nativescript/core";
 import { getResources } from "@nativescript/core/application/application";
 import { getVisibleTodos } from "./store/selectors";
@@ -26,6 +27,7 @@ export function onPageLoaded(args) {
 
 export function onPageUnloaded(args) {
     unsubscribeFromStore();
+    store.dispatch(ActionCreators.clearHistory());
     persistor.flush();
 }
 
