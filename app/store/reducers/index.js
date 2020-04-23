@@ -4,7 +4,7 @@ import {
   SET_VISIBILITY_FILTER,
   TOGGLE_TODO,
   VisibilityFilters
-} from '~/state/actions';
+} from '~/store/actions';
 import { combineReducers } from 'redux';
 import undoable from 'redux-undo';
 const { SHOW_ALL } = VisibilityFilters;

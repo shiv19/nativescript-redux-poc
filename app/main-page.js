@@ -1,9 +1,9 @@
-import { VisibilityFilters, deleteTodo } from "./state/actions";
+import { VisibilityFilters, deleteTodo } from "./store/actions";
 import { ObservableArray } from "@nativescript/core";
 import { getResources } from "@nativescript/core/application/application";
-import { getVisibleTodos } from "./state/selectors";
+import { getVisibleTodos } from "./store/selectors";
 import { setString } from "@nativescript/core/application-settings";
-import { store } from "./state/store";
+import { store } from "./store";
 
 const createViewModel = require("./main-view-model").createViewModel;
 let vm;

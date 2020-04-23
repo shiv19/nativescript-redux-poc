@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from 'redux';
 const composeWithDevTools = require('remote-redux-devtools').composeWithDevTools;
 // import { createLogger } from 'redux-logger';
 import { getString } from '@nativescript/core/application-settings';
-import rootReducer from '~/state/reducers';
+import rootReducer from '~/store/reducers';
 import thunk from 'redux-thunk';
 
 const composeEnhancers = composeWithDevTools({

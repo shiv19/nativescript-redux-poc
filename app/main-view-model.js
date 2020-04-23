@@ -1,11 +1,11 @@
 import { Observable, ObservableArray } from "@nativescript/core";
-import { VisibilityFilters, addTodo, setVisibilityFilter, toggleTodo } from "./state/actions";
+import { VisibilityFilters, addTodo, setVisibilityFilter, toggleTodo } from "./store/actions";
 import { ActionCreators } from 'redux-undo';
 import { Vibrate } from "nativescript-vibrate";
 import { android as _android } from '@nativescript/core/application';
 import { ad } from '@nativescript/core/utils/utils';
-import { getVisibleTodos } from "./state/selectors";
-import { store } from "./state/store";
+import { getVisibleTodos } from "./store/selectors";
+import { store } from "./store";
 
 export function hideKeyboard(textField) {
     // textField only required for iOS
