@@ -20,7 +20,7 @@ const persistConfig = {
   whitelist: [
     'todos'
   ],
-  migrate: createMigrate(migrations, { debug: true })
+  migrate: createMigrate(migrations, { debug: false })
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
