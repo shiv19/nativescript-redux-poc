@@ -1,4 +1,4 @@
-// const webpack = require('webpack');
+const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 
 module.exports = env => {
@@ -6,11 +6,11 @@ module.exports = env => {
   env = env || {};
   const config = webpackConfig(env);
 
-  // const customDefineInstance = new webpack.DefinePlugin({
-  //   'process': {}
-  // });
+  const customDefineInstance = new webpack.DefinePlugin({
+    'global.isProduction': !!env.production
+  });
 
-  // config.plugins.unshift(customDefineInstance);
+  config.plugins.unshift(customDefineInstance);
 
   // babel-rules
   config.module.rules.unshift({

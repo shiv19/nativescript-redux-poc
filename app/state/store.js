@@ -8,8 +8,7 @@ import thunk from 'redux-thunk';
 const composeEnhancers = composeWithDevTools({
   hostname: '192.168.1.82',
   port: 8000,
-  realtime: true,
-  suppressConnectErrors: false
+  realtime: !global.isProduction
 });
 
 // const loggerMiddleware = createLogger();

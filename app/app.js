@@ -1,6 +1,8 @@
 require('nativescript-websockets');
-global.process = require("process/browser");
 import { Application } from '@nativescript/core';
+
+global.process = require("process/browser");
+
 Application.run({ moduleName: "app-root" });
 
 /*
