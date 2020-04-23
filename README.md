@@ -28,3 +28,7 @@ Run the app using,
 `tns run android` or `tns run ios`
 
 If everything went right, you'll see that your app connects to remotedev console!
+
+# Redux data flow
+
+![redux-data-flow](/assets/redux-data-flow.png)
